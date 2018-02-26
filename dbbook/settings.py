@@ -18,7 +18,6 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 SCHEDULER_PERSIST = True
 
-
 SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'dbbook (+http://www.yourdomain.com)'
@@ -50,16 +49,16 @@ DEFAULT_REQUEST_HEADERS = {
 }
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
-    'dbbook.headers_process.MyUserAgentMiddleware':400,
-   # 'dbbook.middlewares.DbbookSpiderMiddleware': 543,
-}
+# SPIDER_MIDDLEWARES = {
+# 'dbbook.middlewares.DbbookSpiderMiddleware': 543,
+# }
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'dbbook.middlewares.DbbookDownloaderMiddleware': 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+    'dbbook.headers_process.MyUserAgentMiddleware': 400,
+    # 'dbbook.middlewares.DbbookDownloaderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
